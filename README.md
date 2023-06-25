@@ -1,4 +1,4 @@
-# Deploy a React app on an EC2 instance via a Jenkins pipeline
+# Deploy a React app on an EC2 instance using a Jenkins pipeline
 
 #### Description:
 
