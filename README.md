@@ -1,15 +1,16 @@
-# Create a CI/CD flow to deploy the React App via Jenkins
+# Deploy a React app on an EC2 instance via a Jenkins pipeline
 
 #### Description:
 
-- Launch 2 EC2 server, 1st for Jenkins and 2nd for App deployment.
-- On 1st server install and configure Jenkins
-- On 2nd server, install the dependencies to run the react app.
-- Create a react project.
-- Upload this react project in GitHub.
-- Make a CI/CD flow to deploy the code via Jenkins.
+• Launch two EC2 instances: One for Jenkins and the other for App deployment.
+• Install and configure Jenkins on the first server.
+• On the second server, install the necessary dependencies to run the React app.
+• Create a React project on the second server.
+• Push the React project to GitHub.
+• Set up a CI/CD flow to deploy the code via Jenkins.
 
-#### Step-1: Launch 2 EC2 server, 1st for Jenkins and 2nd for App deployment
+
+#### Step-1: Launch two EC2 instances: One for Jenkins and the other for App deployment.
 
 Firstly, log in to the AWS management console.
 
@@ -47,7 +48,7 @@ We are good to go to launch an instance for this. Click the Launch instance butt
 
 Similarly, create another EC2 instance for app development.
 
-#### Step-2: On 1st server install and configure Jenkins
+#### Step-2: Install and configure Jenkins on the first server.
 
 Now, take the public IP from the EC2 dashboard and use it to login inside the instance using ssh. First move to the directory where the key is downloaded. In my case it's in downloads directory.
 
@@ -205,7 +206,7 @@ Then finally click save. Now navigate to **Manage Jenkins** then **Manage Nodes 
 
 As you can see worker node is successfully connected to master node.
 
-#### Step-3: On 2nd server, install the dependencies to run the react app
+#### Step-3: On the second server, install the necessary dependencies to run the React app.
 
 First, we need to install nodejs. npm comes with nodejs bundled. To install nodejs, use below commands:
 ```
@@ -226,7 +227,7 @@ Also, npm and npx is already installed. Use ```npm -v``` and ```npx -v``` to che
 
 ![58](https://user-images.githubusercontent.com/74168188/179742147-b31454f7-ddcb-42c0-8cb6-7197600e82a8.png)
 
-#### Step-4: Create a react project
+#### Step-4: Create a React project on the second server.
 
 Now to create react project we use yarn instead of npx. For creating react project use below commands:
 
@@ -239,7 +240,7 @@ sudo create-react-app <APP_NAME>
 ![59](https://user-images.githubusercontent.com/74168188/181865007-43e61ebb-e7ca-43a0-9084-9cd8fd74c287.png)
 ![60](https://user-images.githubusercontent.com/74168188/181865021-d4321b24-0e19-46cc-b73b-efc733c425be.png)
 
-#### Step-5: Upload this react project in GitHub
+#### Step-5: Push the React project to GitHub.
 
 React project is successfully created now time to upload this project to GitHub. For this create an empty repo in GitHub.
 
@@ -279,7 +280,7 @@ Now time to push to GitHub using ```git push```
 
 Files/Folders are successfully pushed to GitHub repo.
 
-#### Step-6: Make a CI/CD flow to deploy the code via Jenkins
+#### Step-6: Set up a CI/CD flow to deploy the code via Jenkins.
 
 Now we need to create a pipeline for next steps. But before this we have to install some plugins. First we require a **Pipeline** plugin to create a pipeline. Second we require **GitHub** plugin so that jenkins can interact with GitHub to download repo and many more things.
 
